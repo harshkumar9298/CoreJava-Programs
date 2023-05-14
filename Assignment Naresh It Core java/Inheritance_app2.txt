@@ -1,0 +1,76 @@
+MAIN CLASS
+==========
+
+package maccess;
+import test.*;
+public class InheriMain {
+	public static void main(String[] args) {
+		Display d=new Display();
+		d.dis();
+		
+		
+	
+	}
+
+}
+================================================================================
+PRODUCT CLASS
+=============
+
+package test;
+
+public class Product {
+
+	 public String pCode,pName;
+	 public float pPrice;
+	 public int pQty;
+	 public void getProduct()
+	 {
+	 System.out.println("====ProductDetails====");
+	 System.out.println("PCode:"+pCode);
+	 System.out.println("PName:"+pName);
+	 System.out.println("PPrice:"+pPrice);
+	 System.out.println("PQty:"+pQty);
+	 
+	 }
+}
+
+===========================================================================
+READ CLASS
+==========
+
+package test;
+import java.util.*;
+
+public class Read extends Product {
+
+	public void read()
+	 {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter the PCode:");
+		pCode = s.nextLine();
+		System.out.println("Enter the PName:");
+		pName = s.nextLine();
+		System.out.println("Enter the PPrice:");
+		pPrice = s.nextFloat();
+		System.out.println("Enter the PQty:");
+	    pQty = s.nextInt();
+	    getProduct();
+		
+		s.close();
+	 }
+}
+============================================================================
+DISPLAY CLASS
+=============
+
+package test;
+
+public class Display extends Read{
+	      public void dis()
+	        {
+	    	  read();
+	        }
+
+}

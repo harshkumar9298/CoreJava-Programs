@@ -1,0 +1,37 @@
+package maccess;
+import java.util.*;
+
+public class StringRev {
+	public static void main(String[] args) {
+	    int count =0;
+            Scanner s = new Scanner(System.in);
+            StringBuffer b = new StringBuffer();
+     	    System.out.println("Enter the String:");
+     	    b.append(s.nextLine());
+     	    String ms=b.toString();
+     
+    	    StringBuffer rs=b.reverse();
+            String Rs=rs.toString();     
+            int l=rs.length();
+            for(int i=0;i<=l-1;i++)
+	       {
+	    	  char ch=Rs.charAt(i);
+	    	  char ch1=ms.charAt(i);
+	    	  if(ch==ch1)
+	    	     {
+	    		count++;
+	    	     }
+	        }
+            if (count==l)
+              {
+    	        System.out.println("String are Palindrome");
+              }
+            else 
+              {
+    	        System.out.println("String are not Palindrome");
+              }
+            s.close();
+        }
+	 
+    }
+

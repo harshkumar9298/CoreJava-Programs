@@ -1,0 +1,123 @@
+
+package p1;
+
+public class StudentPercentage
+{
+	public float calculate(float Totmark)
+	{
+          float per=Totmark/6;
+	  return per;
+	}
+}
+
+
+==============================================================================
+
+
+package p1;
+
+public class StudentResult
+{
+	public String grade;
+	public String calculate(float per, boolean B)
+	{
+	  if(B)
+		{
+		  grade="fail";
+		}
+             else if (per>=70 && per<=100)
+                {
+		    grade="Distinction";
+		 
+                 }
+	     else if (per>=60 && per<70)
+    	        {
+     	            grade="First Division";
+	        }
+
+	     else if (per>=50 && per<60)
+	        {
+		    grade="Second Division";
+	        }
+
+	     else if (per>=35 && per<50)
+	        {
+		    grade="third Division";
+	        }
+
+	     else 
+	        {
+		    grade="fail";
+	        }
+	     return grade;
+
+	 }
+}
+
+
+============================================================================
+
+package p2;
+import java.util.Scanner;
+import p1.StudentResult;
+import p1.StudentPercentage;
+
+class StudMainClass 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter the sudent name:");
+		String Sname= s.nextLine();
+		System.out.println("Enter the sudent RollNo:");
+		String Sroll= s.nextLine();
+                System.out.println("Enter the sudent branch:");
+		String Sbranch= s.nextLine();
+		System.out.println("========Enter six subject marks========");
+                System.out.println("Enter first subject mark");
+		int S1= s.nextInt();
+		System.out.println("Enter second subject mark");
+		int S2= s.nextInt();
+		System.out.println("Enter third subject mark");
+		int S3= s.nextInt();
+		System.out.println("Enter fourth subject mark");
+		int S4= s.nextInt();
+		System.out.println("Enter fifth subject mark");
+		int S5= s.nextInt();
+		System.out.println("Enter sixth subject mark");
+		int S6= s.nextInt();
+		 
+		if((S1>0 && S1<=100)&& (S2>0 && S2<=100)&&(S3>0 && S3<=100)
+			&&(S4>0 && S4<=100)&&(S5>0 && S5<=100)&&(S6>0 && S6<=100))
+		  {
+		    boolean b =false;
+		    if(S1<35||S2<35||S3<35||S4<35||S5<35||S6<35)
+			{
+                           b=true;
+			}
+                    int totmarks=S1+S2+S3+S4+S5+S6;
+		  
+		    StudentPercentage sp = new StudentPercentage();
+		    float per = sp.calculate(totmarks);
+		  
+		    StudentResult sr =new StudentResult();
+		    String grade = sr.calculate(per, b);
+                    System.out.println("========Student Details========");
+                    System.out.println("Student Name:"+Sname);
+	 	    System.out.println("Student RollNo:"+Sroll);
+		    System.out.println("Student Branch :"+Sbranch);
+		    System.out.println("Total Marks:"+totmarks);
+		    System.out.println("Percentage:"+per);
+		    System.out.println("Grade:"+grade);
+
+
+		  }
+
+		else
+		{
+              System.out.println("INVALID MARKS");
+		}
+              s.close();
+	}
+	
+}

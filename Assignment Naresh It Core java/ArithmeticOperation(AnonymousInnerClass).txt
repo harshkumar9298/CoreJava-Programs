@@ -1,0 +1,132 @@
+IArithmetic (Interface):
+========================
+
+package test;
+
+public interface IArithmetic {
+	public abstract double calculate(int x,int y);
+
+}
+
+
+DemoAnonymous4 (MainClass):
+===========================
+
+package maccess;
+import test.*;
+import java.util.*;
+public class DemoAnonymous4 {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("======Choice======");
+		System.out.println("1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.ModDivision\n");
+		System.out.println("Enter Your Choice");
+		int choice=s.nextInt();
+		switch(choice)
+		{
+		case 1:
+		{
+			System.out.println("Enter 1st No:");
+			int a=s.nextInt();
+			System.out.println("Enter 2nd No:");
+			int b=s.nextInt();
+			IArithmetic ad=new IArithmetic()
+			{
+				
+				public double calculate(int x,int y)
+				{
+					return(x+y);
+				}
+			};
+			double add=ad.calculate(a,b);
+			System.out.println("Addition of numbers:"+add);
+			
+			break;
+		}
+		case 2:
+		{
+			System.out.println("Enter 1st No:");
+			int a=s.nextInt();
+			System.out.println("Enter 2nd No:");
+			int b=s.nextInt();
+			IArithmetic sb=new IArithmetic()
+			{
+				public double calculate(int x,int y)
+				{
+					return(x-y);
+				}
+			};
+			double sub=sb.calculate(a,b);
+			System.out.println("Subtraction of numbers:"+sub);
+			
+			break;
+		}
+		case 3:
+		{
+			System.out.println("Enter 1st No:");
+			int a=s.nextInt();
+			System.out.println("Enter 2nd No:");
+			int b=s.nextInt();
+			IArithmetic ml=new IArithmetic()
+			{
+				public double calculate(int x,int y)
+				{
+					return(x*y);
+				}
+			};
+			double mul=ml.calculate(a,b);
+			System.out.println("Multiplication of numbers:"+mul);
+			
+			break;
+		}
+		case 4:
+		{
+			System.out.println("Enter 1st No:");
+			int a=s.nextInt();
+			System.out.println("Enter 2nd No:");
+			int b=s.nextInt();
+			IArithmetic dv=new IArithmetic()
+			{
+				public double calculate(int x,int y)
+				{
+					return(x/y);
+				}
+			};
+			double div=dv.calculate(a,b);
+			System.out.println("Division of numbers:"+div);
+			
+			break;
+		}
+		case 5:
+		{
+			System.out.println("Enter 1st No:");
+			int a=s.nextInt();
+			System.out.println("Enter 2nd No:");
+			int b=s.nextInt();
+			IArithmetic dv=new IArithmetic()
+			{
+				public double calculate(int x,int y)
+				{
+					return(x%y);
+				}
+			};
+			double mdiv=dv.calculate(a,b);
+			System.out.println("ModDivision of numbers:"+mdiv);
+		
+			break;
+		}
+		default:
+		{
+			System.out.println("Invalid Choice.....");
+		}
+		
+		}//End of choice
+		
+		
+	 s.close();	
+	}
+			
+	}
+	
+
+

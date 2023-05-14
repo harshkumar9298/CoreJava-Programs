@@ -1,0 +1,153 @@
+Transaction interface
+======================
+package test;
+public interface Transaction {
+	Balance b= new Balance();
+	public abstract void process(int amt); 
+
+}
+
+Balance Class
+=============
+package test;
+
+public class Balance {
+	public double bal=2000;
+	public void getBalance()
+	{
+		System.out.println("Your Available Balance is:"+bal);
+	}
+
+}
+
+CheckPin Class
+==============
+package test;
+
+public class CheckPin {
+	public boolean k=false;
+	public boolean verify(int pinNo)
+	{
+       if(pinNo==1111 || pinNo==2222 || pinNo==3333)
+
+         {
+            k=true;
+         }
+		else
+		 {
+			System.out.println("WARNING!!!!......Enter valid Pin No");
+		 }
+		
+		 return k;
+	 }
+}
+
+WithDraw Class
+==============
+package test;
+
+public class WithDraw implements Transaction {
+	public void process(int amt)
+	{
+		if(amt<b.bal)
+		{
+			System.out.println("Amount WithDrawn:"+amt);
+			b.bal=(b.bal)-amt;
+			
+			System.out.println("Balance Available:"+b.bal);
+			System.out.println("Transaction Completed");
+		}
+		else
+		{
+			System.out.println("OPPS!!!!!.......InSufficient Balance");
+		}
+	}
+
+}
+
+Deposite Class
+==============
+package test;
+public class Deposite implements Transaction {
+
+	public void process(int amt)
+	{
+		if(amt>0 && amt%100==0)
+		{
+		System.out.println("Balance Deposited:"+amt);
+		b.bal=amt+b.bal;
+		System.out.println("Balance Available:"+b.bal);
+		System.out.println("Transaction Completed....");
+	    }
+		
+		else
+		{
+			System.out.println("OPPS!!!!!.......Please Deposite Amount Only Multiple Of 100");
+		}
+	}
+}
+
+DemoInterface5 Main Class
+=========================
+package maccess;
+import test.*;
+import java.util.Scanner;
+public class DemoInterface5 {
+	
+	public static void main(String[] args) {
+
+	Scanner s=new Scanner(System.in);
+	CheckPin cp= new CheckPin();
+	System.out.println("Enter PinNo");
+	int Pin=s.nextInt();
+	boolean p= cp.verify(Pin);
+	
+	    if(p)
+	    {
+	    	System.out.println("==========Choice============");
+	    	System.out.println("1.Balance\n2.WithDraw\n3.Deposite");
+	    	System.out.println("Enter Your Choice:");
+	    	int choice=s.nextInt();
+	    	switch(choice)
+	    	{
+	    	case 1:
+	    	{   Balance b=new Balance();
+	    		b.getBalance();
+	    		break;
+	    	}
+	    	case 2:
+	    	{ 
+	    		
+	    		System.out.println("Enter The Amount You Want To WithDraw:");
+	    		int amt=s.nextInt();
+	    		
+	    		if(amt>0 && amt%100==0)
+	    		{
+	    		WithDraw wd=new WithDraw();
+	    		wd.process(amt);
+	    		}
+	    		
+	    		else
+	    		{
+	    			System.out.println("OPPS!!!!!!.................Enter The Amount Only Multiple Of 100");
+	    		}
+	    		break;
+	    	}
+	    	case 3:
+	    	{
+	    		System.out.println("Enter The Amount You Want To DepoSite:");
+	    		int amt=s.nextInt();
+	    		Deposite dp=new Deposite();
+	    		dp.process(amt);
+	    		break;
+	    	}
+	    	default:
+	    	{
+	    		System.out.println("OPPS!!!!!.................Enter Valid Choice");
+	    	}
+	    	}//End of Choice
+			   
+	    }
+	    s.close();
+	}
+}

@@ -1,0 +1,165 @@
+MAIN CLASS
+============
+package maccess;
+import java.util.*;
+import test.*;
+public class DemoRef3 {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		Address add =new Address();
+		Contact cn= new Contact();
+		Student stu=new Student(add,cn);
+		Read r =new Read(stu);
+		Display d=new Display(stu);
+		r.read(s);
+		
+		d.display();
+		
+		s.close();
+		
+	}
+
+}
+
+
+==========================================================================
+READ CLASS
+==========
+
+package test;
+import java.util.*;
+
+
+public class Read {
+	 public Student st;
+	 public Read(Student stu)
+	 {
+		 st=stu;
+	 }
+	
+      public void read(Scanner s)
+	   {
+		System.out.println("Enter Name:");
+		st.name=s.nextLine();
+		System.out.println("Enter Branch:");
+		st.branch=s.nextLine();
+		System.out.println("Enter rollNo:");
+		st.rollNo=s.nextLine();
+		st.getStudent();
+		
+	}
+
+}
+
+==============================================================================
+
+STUDENT CLASS
+==============
+
+package test;
+
+public class Student {
+	public String name,branch,rollNo;
+	public Address ad;
+	public Contact c;
+	
+	public Student(Address add, Contact cn)
+	{
+		ad=add;
+		c=cn;
+	}
+	
+	public void getStudent()
+	{
+		ad.getAddress();
+		c.getContact();
+	}
+}
+
+===============================================================================
+
+ADDRESS CLASS
+==============
+
+package test;
+import java.util.*;
+public class Address {
+	public String hNo,sName,city,pinCode;
+	
+	public void getAddress()
+	{
+		Scanner s= new Scanner(System.in);
+	    System.out.println("Enter the House no:");
+	    hNo=s.nextLine();
+	    System.out.println("Enter the Street Name:");
+	    sName=s.nextLine();
+	    System.out.println("Enter the City Name :");
+	    city=s.nextLine();
+	    System.out.println("Enter the pinCode:");
+	    pinCode=s.nextLine();
+	    
+	   
+	    
+	}
+
+}
+
+===============================================================================
+
+CONTACT CLASS
+=============
+
+package test;
+import java.util.*;
+public class Contact {
+	public String mailId;
+	public Long phNo;
+	
+	public void getContact()
+	{
+		Scanner s= new Scanner(System.in);
+	    System.out.println("Enter the mailId:");
+	    mailId=s.nextLine();
+	    System.out.println("Enter the phNo:");
+	    phNo=s.nextLong();
+	    
+	    
+	}
+}
+
+================================================================================
+
+DISPLAY CLASS
+==============
+
+package test;
+
+public class Display {
+	public Student st;
+	public Display(Student stu)
+	 {
+		 st=stu;
+	 }
+	
+	public void display()
+	{
+		 System.out.println("Name:"+(st.name));
+		 System.out.println("Branch:"+(st.branch));
+		 System.out.println("RollNo:"+(st.rollNo));
+		 System.out.println("House No:"+(st.ad.hNo));
+		 System.out.println("Street Name:"+(st.ad.sName));
+		 System.out.println("City:"+(st.ad.city));
+		 System.out.println("pinCode:"+(st.ad.pinCode));
+		 System.out.println("MailId:"+(st.c.mailId));
+		 System.out.println("Phone No:"+(st.c.phNo));
+		
+	}
+	
+
+}
+
+
+
+
+
+

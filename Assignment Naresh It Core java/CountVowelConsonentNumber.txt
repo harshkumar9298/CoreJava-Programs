@@ -1,0 +1,62 @@
+package maccess;
+
+import java.util.Scanner;
+
+public class VowelConsonentNumberCount {
+
+	public static void main(String[] args) {
+
+		  Scanner s=new Scanner(System.in);
+		  
+		  int Count=0;
+		  int Count1=0;
+		  int Count2=0;
+		  System.out.println("Enter the String");
+		  String str=s.nextLine();
+		  int l=str.length();
+		  for(int i=0;i<l;i++)
+		   {
+			  if((str.charAt(i)=='a')||(str.charAt(i)=='A')||(str.charAt(i)=='e')||(str.charAt(i)=='E')
+			    ||(str.charAt(i)=='i')||(str.charAt(i)=='I')||(str.charAt(i)=='o')||(str.charAt(i)=='O')
+			    ||(str.charAt(i)=='u')||(str.charAt(i)=='U'))
+			   {
+				  
+				  Count++; 
+				 
+			   }
+			  else if((str.charAt(i)=='b')||(str.charAt(i)=='B')||(str.charAt(i)=='c')||(str.charAt(i)=='C')
+					    ||(str.charAt(i)=='d')||(str.charAt(i)=='D')||(str.charAt(i)=='f')||(str.charAt(i)=='F')
+					    ||(str.charAt(i)=='g')||(str.charAt(i)=='G')||(str.charAt(i)=='h')||(str.charAt(i)=='H')
+					    ||(str.charAt(i)=='j')||(str.charAt(i)=='J')||(str.charAt(i)=='k')||(str.charAt(i)=='K')
+					    ||(str.charAt(i)=='l')||(str.charAt(i)=='L')||(str.charAt(i)=='m')||(str.charAt(i)=='M')
+					    ||(str.charAt(i)=='n')||(str.charAt(i)=='N')||(str.charAt(i)=='p')||(str.charAt(i)=='P')
+					    ||(str.charAt(i)=='q')||(str.charAt(i)=='Q')||(str.charAt(i)=='r')||(str.charAt(i)=='R')
+					    ||(str.charAt(i)=='s')||(str.charAt(i)=='S')||(str.charAt(i)=='t')||(str.charAt(i)=='T')
+					    ||(str.charAt(i)=='v')||(str.charAt(i)=='V')||(str.charAt(i)=='w')||(str.charAt(i)=='W')
+					    ||(str.charAt(i)=='x')||(str.charAt(i)=='X')||(str.charAt(i)=='y')||(str.charAt(i)=='Y')
+					    ||(str.charAt(i)=='z')||(str.charAt(i)=='Z'))
+					   {
+						 
+						  Count1++; 
+			  
+			           }
+			  else if((str.charAt(i)=='0')||(str.charAt(i)=='1')||(str.charAt(i)=='2')||(str.charAt(i)=='3')
+					    ||(str.charAt(i)=='4')||(str.charAt(i)=='5')||(str.charAt(i)=='6')||(str.charAt(i)=='7')
+					    ||(str.charAt(i)=='8')||(str.charAt(i)=='9'))
+					   {
+						  
+						  Count2++; 
+						 
+					   }
+			  
+		   }
+		  System.out.println("The Total Number Of Vowel Present In Your String Is:"+Count);
+		  System.out.println("The Total Number Of Consonent Present In Your String Is:"+Count1);
+		  System.out.println("The Total Number Of Number Present In Your String Is:"+Count2);
+		  s.close();
+		   }
+		  
+		  
+	}
+
+

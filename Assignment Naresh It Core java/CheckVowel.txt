@@ -1,0 +1,36 @@
+package maccess;
+import java.util.*;
+public class VowelMain {
+      
+	  public static void main(String[]args)
+	  {
+		  Scanner s=new Scanner(System.in);
+		  boolean b=true;
+		  int Count=0;
+		  System.out.println("Enter the String");
+		  String str=s.nextLine();
+		  int l=str.length();
+		  for(int i=0;i<l;i++)
+		   {
+			  if((str.charAt(i)=='a')||(str.charAt(i)=='A')||(str.charAt(i)=='e')||(str.charAt(i)=='E')
+			    ||(str.charAt(i)=='i')||(str.charAt(i)=='I')||(str.charAt(i)=='o')||(str.charAt(i)=='O')
+			    ||(str.charAt(i)=='u')||(str.charAt(i)=='U'))
+			   {
+				  System.out.println(str.charAt(i));
+				  Count++; 
+				 
+				  b=false;
+			   }
+			  
+		  }
+		  System.out.println("The Total Number Of Vowel Present In Your String Is:"+Count);
+		  
+		  if(b)
+                  {
+	           System.out.println("This String Does'nt Contain Any Vowel");
+		  }
+		  s.close();
+		   }
+		  
+}
+
